@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap");
+
+:root {
+  --veryDarkVioletbg: hsl(268, 75%, 9%);
+  --calbg: hsl(268, 71%, 12%);
+
+  --keyDarkViolet: hsl(281, 89%, 26%);
+  --keyVividMagenta: hsl(285, 91%, 52%);
+
+  --PureCyan: hsl(176, 100%, 44%);
+  --SoftCyan: hsl(177, 92%, 70%);
+
+  --VeryDarkViolet: hsl(268, 47%, 21%);
+  --DarkMagenta: hsl(290, 70%, 36%);
+
+  --textYellow: hsl(52, 100%, 62%);
+  --textWhite: hsl(0, 0%, 100%);
+}
+
+* {
+  /* outline: solid 1px red; */
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: var(--veryDarkVioletbg);
+  color: var(--textYellow);
+  font-family: "League Spartan", sans-serif;
+}
+
+button {
+  border: none;
+  border-radius: 1rem;
+  background-color: var(--VeryDarkViolet);
+  box-shadow: 0px 2px 0px var(--keyVividMagenta);
+  color: var(--textYellow);
+  font-weight: 900;
+  font-size: 1.25rem;
+  height: 4rem;
+}
+
+.clearbtns {
+  background-color: var(--keyDarkViolet);
+  color: var(--textWhite);
+}
+
+#reset:hover {
+  background-color: var(--keyVividMagenta);
+}
+
+#equals {
+  background-color: var(--PureCyan);
+  color: var(--veryDarkVioletbg);
+  box-shadow: 0px 2px 0px var(--SoftCyan);
+}
+
+#equals:hover {
+  background-color: var(--SoftCyan);
+}
+
+button:hover {
+  background-color: var(--keyVividMagenta);
+  transition: background-color 200ms;
+}
+
+button:not(:hover) {
+  transition: background-color 200ms;
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.container {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-rows: 0.5fr 1fr 3fr;
+  padding: 2.5rem 1.5rem;
+  gap: 1rem;
+  background-color: var(--calbg);
+  border-radius: 1rem;
+}
+
+.top {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.mid {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--veryDarkVioletbg);
+  border-radius: 1rem;
+  font-size: 4rem;
+  font-weight: 900;
+  overflow: hidden;
+}
+
+.bottom {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 1rem;
+  grid-template-areas:
+    "seven eight nine del"
+    "four five six plus"
+    "one two three minus"
+    "decimal zero divide multiply"
+    "reset reset equals equals";
+}

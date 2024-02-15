@@ -4,6 +4,9 @@ const processor = {
   arrayQueue: ["", "", ""],
   updateDisplay: function (value) {
     display.textContent = value;
+    if (display.textContent.length === 0) {
+      display.textContent = "0";
+    }
   },
   passValue: function (index, value) {
     this.arrayQueue[index] += value.toString();
@@ -16,25 +19,25 @@ const processor = {
       case "+":
         result = this.arrayQueue[0] * 1 + this.arrayQueue[2] * 1;
         this.clearArray();
-        this.arrayQueue[0] = result;
+        this.arrayQueue[0] = `${result}`;
         this.updateDisplay(result);
         break;
       case "-":
         result = this.arrayQueue[0] * 1 - this.arrayQueue[2] * 1;
         this.clearArray();
-        this.arrayQueue[0] = result;
+        this.arrayQueue[0] = `${result}`;
         this.updateDisplay(result);
         break;
       case "*":
         result = this.arrayQueue[0] * 1 * this.arrayQueue[2] * 1;
         this.clearArray();
-        this.arrayQueue[0] = result;
+        this.arrayQueue[0] = `${result}`;
         this.updateDisplay(result);
         break;
       case "/":
         result = ((this.arrayQueue[0] * 1) / this.arrayQueue[2]) * 1;
         this.clearArray();
-        this.arrayQueue[0] = result;
+        this.arrayQueue[0] = `${result}`;
         this.updateDisplay(result);
         break;
     }
@@ -94,15 +97,19 @@ equals.addEventListener("click", () => {
 
 // Click logic foe delete
 del.addEventListener("click", () => {
-  processor.arrayQueue[1].length === 0
-    ? (processor.arrayQueue[0] = processor.arrayQueue[0].slice(
-        0,
-        processor.arrayQueue[0].length - 1
-      ))
-    : (processor.arrayQueue[2] = processor.arrayQueue[2].slice(
-        0,
-        processor.arrayQueue[2].length - 1
-      ));
+  if (processor.arrayQueue[1].length === 0) {
+    processor.arrayQueue[0] = processor.arrayQueue[0].slice(
+      0,
+      processor.arrayQueue[0].length - 1
+    );
+    processor.updateDisplay(processor.arrayQueue[0]);
+  } else {
+    processor.arrayQueue[2] = processor.arrayQueue[2].slice(
+      0,
+      processor.arrayQueue[2].length - 1
+    );
+    processor.updateDisplay(processor.arrayQueue[2]);
+  }
 });
 
 // Click logic for reset
