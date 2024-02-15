@@ -112,3 +112,13 @@ button:not(:hover) {
     "decimal zero divide multiply"
     "reset reset equals equals";
 }
+
+@media screen and (max-width: 500px) {
+  body {
+    background-color: var(--calbg);
+    overflow: hidden;
+  }
+  .container {
+    margin-top: 0;
+  }
+}

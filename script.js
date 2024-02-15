@@ -7,6 +7,7 @@ const processor = {
     if (display.textContent.length === 0) {
       display.textContent = "0";
     }
+    this.checkComma();
   },
   passValue: function (index, value) {
     this.arrayQueue[index] += value.toString();
@@ -47,6 +48,38 @@ const processor = {
   },
   isUnderLimit: function () {
     return display.textContent.length < 10 ? true : false;
+  },
+  checkComma: function () {
+    switch (display.textContent.length) {
+      case 4:
+        display.textContent =
+          display.textContent.slice(0, 1) + "," + display.textContent.slice(1);
+        break;
+      case 5:
+        display.textContent =
+          display.textContent.slice(0, 2) + "," + display.textContent.slice(2);
+        break;
+      case 6:
+        display.textContent =
+          display.textContent.slice(0, 3) + "," + display.textContent.slice(3);
+        break;
+      case 7:
+        display.textContent =
+          display.textContent.slice(0, 1) +
+          "," +
+          display.textContent.slice(1, 4) +
+          "," +
+          display.textContent.slice(4);
+        break;
+      case 8:
+        display.textContent =
+          display.textContent.slice(0, 2) +
+          "," +
+          display.textContent.slice(2, 5) +
+          "," +
+          display.textContent.slice(5);
+        break;
+    }
   },
 };
 
